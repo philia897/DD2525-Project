@@ -9,8 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@highoutput/serialize": "^0.1.5",
+    "any-serialize": "^1.4.12",
     "cryo": "0.0.6",
+    "funcster": "0.0.5",
     "node-serialize": "0.0.4",
+    "serialize-javascript": "^6.0.0",
     "serialize-to-js": "^3.1.2"
   }
 }

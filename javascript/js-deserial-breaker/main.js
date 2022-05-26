@@ -1,6 +1,6 @@
 const myArgs = process.argv.slice(2);
 
-var support_libraries = ['cryo', 'node-serialize', 'serialize-to-js']
+var support_libraries = ['cryo', 'node-serialize', 'serialize-to-js', 'serialize-javascript', 'funcster', 'any-serialize']
 var help = `
 *** Javascript Deserialization Breaker ***    
 
@@ -29,7 +29,7 @@ switch (myArgs[0]) {
                 var payload = cryoGen.genPayload()
                 cryoGen.testPayload(payload)
                 var filename = `${support_libraries[0]}_payload.json`
-                fs.writeFile(filename, payload, (err) => {saveCallBack(err,filename)})
+                fs.writeFile(`output/${filename}`, payload, (err) => {saveCallBack(err,filename)})
             }
         })    
         break;
@@ -45,7 +45,8 @@ switch (myArgs[0]) {
                 var payload = Gen.genPayload()
                 Gen.testPayload(payload)
                 var filename = `${support_libraries[1]}_payload.json`
-                fs.writeFile(filename, payload, (err) => {saveCallBack(err,filename)})            }
+                fs.writeFile(`output/${filename}`, payload, (err) => {saveCallBack(err,filename)})
+            }
         })    
         break;
 
@@ -60,7 +61,55 @@ switch (myArgs[0]) {
                 var payload = Gen.genPayload()
                 Gen.testPayload(payload)
                 var filename = `${support_libraries[2]}_payload.json`
-                fs.writeFile(filename, payload, (err) => {saveCallBack(err,filename)})            
+                fs.writeFile(`output/${filename}`, payload, (err) => {saveCallBack(err,filename)})
+            }
+        })    
+        break;
+
+    case 'serialize-javascript':
+        var fs = require('fs');
+        fs.readFile(myArgs[2],'utf8',function(error,data){
+            if(error){
+                console.log("ERROR: InsertScriptFile doesn't exist!")
+            }else{
+                var Gen = require('./lib/serializeJavascriptGen')
+                Gen.init(myArgs[1],data.toString())        
+                var payload = Gen.genPayload()
+                Gen.testPayload(payload)
+                var filename = `${support_libraries[3]}_payload.json`
+                fs.writeFile(`output/${filename}`, payload, (err) => {saveCallBack(err,filename)})
+            }
+        })    
+        break;
+
+    case 'funcster':
+        var fs = require('fs');
+        fs.readFile(myArgs[2],'utf8',function(error,data){
+            if(error){
+                console.log("ERROR: InsertScriptFile doesn't exist!")
+            }else{
+                var Gen = require('./lib/funcsterGen')
+                Gen.init(myArgs[1],data.toString())        
+                var payload = Gen.genPayload()
+                Gen.testPayload(payload)
+                var filename = `${support_libraries[4]}_payload.json`
+                fs.writeFile(`output/${filename}`, payload, (err) => {saveCallBack(err,filename)})
+            }
+        })    
+        break;
+
+    case 'any-serialize':
+        var fs = require('fs');
+        fs.readFile(myArgs[2],'utf8',function(error,data){
+            if(error){
+                console.log("ERROR: InsertScriptFile doesn't exist!")
+            }else{
+                var Gen = require('./lib/anySerializeGen')
+                Gen.init(myArgs[1],data.toString())        
+                var payload = Gen.genPayload()
+                Gen.testPayload(payload)
+                var filename = `${support_libraries[5]}_payload.json`
+                fs.writeFile(`output/${filename}`, payload, (err) => {saveCallBack(err,filename)})
             }
         })    
         break;

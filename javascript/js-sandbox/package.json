@@ -1,0 +1,15 @@
+{
+  "name": "js-sandbox",
+  "version": "1.0.0",
+  "description": "js-sandbox to detect remote code execution attack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zekun Wang",
+  "license": "ISC",
+  "dependencies": {
+    "cryo": "0.0.6",
+    "js-interpreter": "^2.3.1"
+  }
+}
