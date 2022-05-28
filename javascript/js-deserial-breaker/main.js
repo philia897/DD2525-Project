@@ -4,7 +4,7 @@ var support_libraries = ['cryo', 'node-serialize', 'serialize-to-js', 'serialize
 var help = `
 *** Javascript Deserialization Breaker ***    
 
-Usage: breaker library overwriteMethod InsertScriptFile
+Usage: breaker [library] [overwriteMethod] [InsertScriptFile]
 support libraries: ${support_libraries.toString()}
 
 ==========================================

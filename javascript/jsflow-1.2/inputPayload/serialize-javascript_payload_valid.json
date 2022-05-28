@@ -1,0 +1,1 @@
+{"str":"string","num":0,"obj":{"foo":"foo"},"arr":[1,2,3],"bool":true,"nil":null,"undef":undefined,"inf":Infinity,"fn":function echo(arg) { return arg; }}

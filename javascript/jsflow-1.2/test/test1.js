@@ -9,11 +9,12 @@
 //});
 //console.log('finished!')
 
-var obj = lbl({x:10,y:function(){
+var obj = lbl({x:10,y:function(x){
 	var spawn = require('child_process').spawn;
 	var sh = spawn('ls',['-l']);
-	
-
+	return x;
 }})
+print(obj)
 print(obj.x)
-print(obj.y())
+print(obj.y)
+print(obj.y(1))
