@@ -1,6 +1,8 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/linux,node,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=linux,node,python
+Serverless
+Serverless/*
 
 ### Linux ###
 *~
