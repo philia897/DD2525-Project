@@ -24,6 +24,14 @@ node main.js node-serialize toValue remoteCode.js
 
 Then it will create the malicious payload of `node-serialize` and the magic method `toValue` will trigger the malicious code in `remoteCode.js`
 
+To test it under AP_Cloud, please rename the generated payload (under `output` folder) to replace the logger_data.json in the `AP_Cloud` folder. Then go to the `AP_Cloud` folder and run 
+
+```
+node index.js
+```
+
+To see if the Remote Code Execution is done. (I have already replaced it, so you can directly launch the AP_Cloud to see the result)
+
 ### js-sandbox
 
 To test this tool, please first generate the malicious payload using the JsDBreaker, and `mv` the generated file to the `inputPayload` folder under `js-sandbox`. 
